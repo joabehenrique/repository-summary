@@ -38,34 +38,18 @@ To install Repository Summary, follow these steps:
 To use Repository Summary, follow these steps:
 
 ```
-working..
+Development project using the Github API, where through 
+a request is returned some basic information of the 
+repositories of your account.
+
+The project is also a challenge from the elixir 
+trail on rocketseat.
 ```
 
-Getting a 
+Getting a repository summary
 ```
-(GET) api/v1//{id}
+(GET) api/v1/github/user/{username}
 ```
-Deleting a 
-```
-(DELETE) api/v1//{id}
-```
-Creating a 
-```
-(POST) api/v1/
-
-{
-
-}
-```
-Changing a 
-```
-(PUT) api/v1//{id}
-
-{
-
-}
-```
-
 
 ## 📫 Contributing to Repository Summary
 
