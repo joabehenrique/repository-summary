@@ -1,9 +1,5 @@
 defmodule RepositorySummary do
-  @moduledoc """
-  RepositorySummary keeps the contexts that define your domain
-  and business logic.
+  alias RepositorySummary.FindRepository, as: FindRepository
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate find_repositorys(params), to: FindRepository, as: :call
 end
