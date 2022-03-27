@@ -50,6 +50,25 @@ Getting a repository summary
 ```
 (GET) api/v1/github/user/{username}
 ```
+Create a user
+```
+(POST) api/v1/github/user/signup
+
+{
+  "password": "aduy324!@"
+}
+```
+Log in with your user
+
+*to get the token and access the route from repository summary
+```
+(POST) api/v1/github/user/signin
+
+{
+  "id": 2,
+  "password": "aduy324!@"
+}
+```
 
 ## 📫 Contributing to Repository Summary
 
