@@ -10,6 +10,14 @@ use Mix.Config
 config :repository_summary,
   ecto_repos: [RepositorySummary.Repo]
 
+config :repository_summary, RepositorySummaryWeb.Auth.Guardian,
+  issuer: "repository_summary",
+  secret_key: "u4otuyUrqzWMOfFmNk1Xkr8VT9+bWTFv3RHyPxHnQ0SNbPePjbKjkXjW+Ql0nRNE"
+
+config :repository_summary, RepositorySummaryWeb.Auth.Pipeline,
+  module: RepositorySummaryWeb.Auth.Guardian,
+  error_handler: RepositorySummaryWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :repository_summary, RepositorySummaryWeb.Endpoint,
   url: [host: "localhost"],
