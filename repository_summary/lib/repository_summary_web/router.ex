@@ -7,6 +7,7 @@ defmodule RepositorySummaryWeb.Router do
 
   pipeline :auth do
     plug(RepositorySummaryWeb.Auth.Pipeline)
+    plug(RepositorySummaryWeb.Auth.RefreshToken)
   end
 
   scope "/api/v1/github", RepositorySummaryWeb do

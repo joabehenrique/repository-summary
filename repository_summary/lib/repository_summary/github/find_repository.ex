@@ -18,6 +18,9 @@ defmodule RepositorySummary.FindRepository do
   defp handle_get({:ok, %Env{status: 404, body: %{"message" => "Not Found"}}}),
     do: {:error, Error.build(:not_found, "Repository Owner not found")}
 
+  defp handle_get({:ok, %Env{status: 403, body: %{"message" => message}}}),
+    do: {:error, Error.build(:service_unavailable, message)}
+
   defp handle_get({:ok, %Env{status: 200, body: body}}), do: format_body(body)
 
   defp format_body(body) do
