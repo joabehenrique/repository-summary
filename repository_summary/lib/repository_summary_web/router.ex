@@ -5,10 +5,21 @@ defmodule RepositorySummaryWeb.Router do
     plug(:accepts, ["json"])
   end
 
+  pipeline :auth do
+    plug(RepositorySummaryWeb.Auth.Pipeline)
+  end
+
+  scope "/api/v1/github", RepositorySummaryWeb do
+    pipe_through([:api, :auth])
+
+    get("/user/:name", GithubController, :find_repositorys)
+  end
+
   scope "/api/v1/github", RepositorySummaryWeb do
     pipe_through(:api)
 
-    get("/user/:name", GithubController, :find_repositorys)
+    post("/user/signin", UserController, :sign_in)
+    post("/user/signup", UserController, :create)
   end
 
   if Mix.env() in [:dev, :test] do
